@@ -1,0 +1,146 @@
+<!--  This is survey page whoch takes details from user and stores in DB -->
+
+<!DOCTYPE html>
+<html>
+<body>
+  <style>
+     h1 {outline-color:blue;}
+        h1.outset {outline-style: outset;}
+    .required {color:red; font-size:1em;}
+  </style>
+  <div class="container text-center" style="text-align: center;">
+    <h1 class="outset">STUDENT SURVEY FORM</h1>
+</div>
+  <br>
+  <div class="container">
+    <form #frm="ngForm" (ngSubmit)="submit" ngNativeValidate>
+      
+      <div class="row" >
+        <div class="col-20">
+          <label for="firstname">First Name: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="id1" name="First Name" [(ngModel)]="model.firstName" placeholder="First Name"
+                 autofocus="autofocus" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="lastname">Last Name: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="id2" name="Last Name" [(ngModel)]="model.lastName" placeholder="Last Name"
+            required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input3">Street Address: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="address" name="address" [(ngModel)]="model.streetAddress" placeholder="Address" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input4">City: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="city" name="city" [(ngModel)]="model.city" placeholder="Ex:Chantilly" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input5">State: <span class="required">*</span></label>
+          
+        </div>
+        <div class="col-80">
+          <input type="text" id="state" name="state" [(ngModel)]="model.state" placeholder="Ex:Texas" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input6">Zip: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="zip" name="zip" [(ngModel)]="model.zip" placeholder="Ex:20151" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input7">Telephone Number: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="mobile" name="mobile" [(ngModel)]="model.phoneNumber" placeholder="Ex:571-123-9887"
+                 required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input8">Email: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="text" id="email" name="email" [(ngModel)]="model.email" placeholder="Ex:abc@gmail.com" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-20">
+          <label for="input9">Date of Survey: <span class="required">*</span></label>
+        </div>
+        <div class="col-80">
+          <input type="date" id="dateOfSurvey" name="dateOfSurvey" [(ngModel)]="model.dateOfSurvey" placeholder="mm/dd/yyyy" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="input10">What do you like most about the campus:</label>
+        <div *ngFor="let item of checkboxesDataList">
+          <input type="checkbox" name="likes" id="likes" [(ngModel)]="item.isChecked">{{item.label}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-20">
+          <label for="input10">How did you hear about us:</label>
+        </div>
+        <div class="col-80">
+          <input type="radio" id="Friends" name="sources" value="Friends" [(ngModel)]="model.interest">
+          <label for="Friends">Friends</label>
+          <input type="radio" id="Television" name="sources" value="Television" [(ngModel)]="model.interest">
+          <label for="Telivision">Television</label>
+          <input type="radio" id="Internet" name="sources" value="Internet" [(ngModel)]="model.interest">
+          <label for="Internet">Internet</label>
+          <input type="radio" id="Others" name="sources" value="Other" [(ngModel)]="model.interest">
+          <label for="Others">Others</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-20">
+          <label for="input11">
+            How likely do you Recommend this school to other students:
+          </label>
+        </div>
+        <div class="col-80">
+          <select id="likelihood" name="recommendation" [(ngModel)]="model.recommendation">
+            <option value="">..</option>
+            <option value="Likely">Likely</option>
+            <option value="Very Likely">Very Likely</option>
+            <option value="Unlikely">Unlikely</option>
+          </select>
+        </div>
+      </div>
+      <br>
+
+  
+   <div class="row col-50">
+        <input type="reset" value="Cancel"> 
+        <input type="submit" value="Submit" (click)="submit(); frm.reset()">
+      </div>
+      
+    </form>
+  </div>
+</body>
+<router-outlet></router-outlet>
+</html>

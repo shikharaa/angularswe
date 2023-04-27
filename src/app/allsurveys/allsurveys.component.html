@@ -1,0 +1,40 @@
+<!--  This page is created for displaying the information in web browser. This will pull data from db.  -->
+
+<div class="table-responsive">
+    <table class="table-bordered table-hover border-secondary">
+        <thead>
+            <tr>
+                <th>No</th>   <!--  this will create table names -->
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Street Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Date Of Survey</th>
+                <th>Likely</th>
+                <th>Interest</th>
+                <th>Recommendation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-dark" *ngFor="let survey of surveys">  <!--  This will display data -->
+                <td>{{survey.num}}</td>
+                <td>{{survey.firstName}}</td>
+                <td>{{survey.lastName}}</td>
+                <td>{{survey.streetAddress}}</td>
+                <td>{{survey.city}}</td>
+                <td>{{survey.state}}</td>
+                <td>{{survey.zip}}</td>
+                <td>{{survey.phoneNumber}}</td>
+                <td>{{survey.email}}</td>
+                <td>{{survey.dateOfSurvey}}</td>
+                <td>{{survey.likely}}</td>
+                <td>{{survey.interest}}</td>
+                <td>{{survey.recommendation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
